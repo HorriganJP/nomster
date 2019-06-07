@@ -1,6 +1,7 @@
-<div class="flickr_pagination col-10 offset-1">
+<div class="flickr_pagination col-6 offset-5">
   <%= will_paginate @places, :page_links => false %>
 </div>
+
 <% @places.each do |place| %>
   <div class="booyah-box col-10 offset-1">
       <h1><%= place.name %></h1>
