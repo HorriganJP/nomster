@@ -11,7 +11,11 @@ class PlacesController < ApplicationController
 
   def create
     @place = current_user.places.create(place_params)
-    redirect_to root_path
+    if @place.valid?
+      redirect_to root_path
+    else
+      render :new, status: :unprocessable_entity
+    end
   end
 
   def show
@@ -33,7 +37,11 @@ class PlacesController < ApplicationController
     end
 
     @place.update_attributes(place_params)
-    redirect_to root_path
+    if @place.valid?
+      redirect_to root_path
+    else
+      render :edit, status: :unprocessable_entity
+    end
   end
 
   def destroy
@@ -41,7 +49,7 @@ class PlacesController < ApplicationController
     if @place.user != current_user
       return render plain: 'Not Allwed', status: :forbidden
     end
-    
+
     @place.destroy
     redirect_to root_path
   end
