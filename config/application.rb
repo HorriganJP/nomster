@@ -21,8 +21,5 @@ module Nomster
 
     # precompile additional assets
     config.assets.precompile += %w( .svg .eot .woff .ttf )
-
-    #stackoverflow feedback for heroku-upload-precompiling-assets-failed
-    config.assets.initialize_on_precompile = false
   end
 end
