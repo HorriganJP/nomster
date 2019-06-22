@@ -44,20 +44,13 @@
 </div>
 <div class="clear"></div>
 
-
-<!-- Button Trigger Modal -->
-<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
-  Add a Comment
-</button>
-
 <!-- Modal -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h4 class="modal-title" id="exampleModalLabel">Add a Comment</h4>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
+          <span aria-hidden="true">Add a Comment</span>
         </button>
       </div>
       <%= simple_form_for @comment, url: place_comments_path(@place) do |f| %>
@@ -74,22 +67,24 @@
   </div>
 </div>
 
-<div class="col-10 offset-1">
-  <h1 class="float-center">Comments</h1>
-  <!-- button tirgger modal -->
+<div class="col-6 offset-1">
+  <h1 class="float-left">Comments</h1>
+  <!-- Right button trigger modal -->
   <button type="button" class="btn btn-primary btn-lg float-right" data-toggle="modal" data-target="#myModal">
     Add a Comment
   </button>
 </div>
-
+<br/>
+<div class="clear"></div>
+<br/>
 <div class="row">
   <% @place.comments.each do |comment| %>
     <div class="col-12 col-sm-6">
       <blockquote>
         <% if comment.humanized_rating.present? %>
           <b><%= comment.humanized_rating %></b> -
+          <%= comment.message %>
         <% end %>
-        <%= comment.message %>
         <small><%= comment.user.email %></small>
       </blockquote>
     </div>
