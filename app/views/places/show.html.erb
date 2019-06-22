@@ -66,8 +66,8 @@
           <%= f.input :rating, as: :select, collection: Comment::RATINGS %>
         </div>
         <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <%= f.submit "Add a Comment", class: 'btn btn-primary' %>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <%= f.submit "Add a Comment", class: 'btn btn-primary' %>
         </div>
       <% end %>
     </div>
@@ -75,23 +75,23 @@
 </div>
 
 <div class="col-10 offset-1">
-  <h1 class="float-left">Comments</h1>
+  <h1 class="float-center">Comments</h1>
   <!-- button tirgger modal -->
   <button type="button" class="btn btn-primary btn-lg float-right" data-toggle="modal" data-target="#myModal">
     Add a Comment
   </button>
 </div>
 
-<div class="clear"></div>
-
-<% @place.comments.each do |comment| %>
-  <div class="col-12 col-sm-6">
-    <blockquote>
-      <% if comment.humanized_rating.present? %>
-        <b><%= comment.humanized_rating %></b> -
-      <% end %>
-      <%= comment.message %>
-      <small><%= comment.user.email %></small>
-    </blockquote>
-  </div>
-<% end %>
+<div class="row">
+  <% @place.comments.each do |comment| %>
+    <div class="col-12 col-sm-6">
+      <blockquote>
+        <% if comment.humanized_rating.present? %>
+          <b><%= comment.humanized_rating %></b> -
+        <% end %>
+        <%= comment.message %>
+        <small><%= comment.user.email %></small>
+      </blockquote>
+    </div>
+  <% end %>
+</div>
