@@ -113,7 +113,7 @@
           <%= f.input :picture %>
           <%= f.input :caption %>
           <%= f.check_box :remove_picture %>
-              Remove picture
+            Remove picture
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -129,8 +129,8 @@
 <div class="booyah-box col-8 offset-2">
   <h1 class="col-12">Photos</h1>
   <div class="img">
-    <%= @place.photos.each do |photo| %>
-      <%= image_tag photo.picture.url %>
+    <% @place.photos.each do |photo| %>
+      <%= image_tag photo.picture.url, class: 'show-image-size' %>
       <%= photo.caption %>
     <% end %>
   </div>
