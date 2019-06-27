@@ -1,6 +1,5 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: 'devHorrigan@gmail.com'
-  layout 'mailer'
+  default from: 'no-reply@nomsterapp.com'
 
   def comment_added(comment)
   	@place = comment.place
