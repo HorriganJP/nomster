@@ -3,6 +3,6 @@ class ApplicationMailer < ActionMailer::Base
   layout 'mailer'
 
   def comment_added
-  	mail(to: "my@email.com", subject: "A comment has been added to your place")
+  	mail(to: "devHorrigan@gmail.com", subject: "A comment has been added to your place")
   end
 end
