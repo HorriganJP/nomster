@@ -29,12 +29,12 @@ ActiveRecord::Schema.define(version: 2019_06_26_001423) do
   create_table "photos", force: :cascade do |t|
     t.integer "user_id"
     t.integer "place_id"
-    t.text "caption"
+    t.text "caption" #HOPPER t.string "caption"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "picture"
+    t.string "picture" #HOPPER 'photo'
     t.index ["place_id"], name: "index_photos_on_place_id"
-    t.index ["user_id", "place_id"], name: "index_photos_on_user_id_and_place_id"
+    t.index ["user_id", "place_id"], name: "index_photos_on_user_id_and_place_id" #HOPPER "NIL"
   end
 
   create_table "places", force: :cascade do |t|
